@@ -1,29 +1,29 @@
 class Altoviz < Formula
   desc "Command-line interface for the Altoviz invoicing app"
   homepage "https://developer.altoviz.com"
-  version "0.0.4"
+  version "0.0.6"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/altoviz/cli/releases/download/v#{version}/altoviz-osx-arm64.tar.gz"
-      sha256 "6ab016bd045114995db3625dc72304dd76cb6cdb12daa218de62d0a0e1d689a3"
+      sha256 "7226145371a1653bf9b1a72bcba6a62ee1b9226e2164a6c4429aa024677ea2ee"
     else
       url "https://github.com/altoviz/cli/releases/download/v#{version}/altoviz-osx-x64.tar.gz"
-      sha256 "5e013cddaba9f39316b1c36ded699d27663b07c528d7c87453c6f23e510cbf0f"
+      sha256 "d1f06e5f92737830306854d07b2ebc06cb27722aaefab907be776fdbc58ef4d3"
     end
   end
 
   on_linux do
     url "https://github.com/altoviz/cli/releases/download/v#{version}/altoviz-linux-x64.tar.gz"
-    sha256 "a68dd15b04a71069c07f0ff6d3eb23d6aee68eab28a041c4a273697ebffd9bde"
+    sha256 "c37b0acc6e7b5b0ae16ca877e45ee0dd5c2cbec90423ced6f7ffb6db7c93643d"
   end
 
   def install
     bin.install "altoviz"
-
-    # Install shell completions
-    generate_completions_from_executable(bin/"altoviz", "completion")
+    bash_completion.install "completions/altoviz.bash" => "altoviz"
+    zsh_completion.install "completions/altoviz.zsh" => "_altoviz"
+    fish_completion.install "completions/altoviz.fish"
   end
 
   def caveats

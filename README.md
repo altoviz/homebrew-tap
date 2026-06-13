@@ -5,6 +5,7 @@ This is the official [Homebrew](https://brew.sh) tap for the [altoviz CLI](https
 ## Install
 
 ```sh
+brew trust altoviz/tap
 brew install altoviz/tap/altoviz
 ```
 
