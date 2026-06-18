@@ -1,22 +1,22 @@
 class Altoviz < Formula
   desc "Command-line interface for the Altoviz invoicing app"
   homepage "https://developer.altoviz.com"
-  version "0.0.5"
+  version "0.0.7"
   license "MIT"
 
   on_macos do
     if Hardware::CPU.arm?
       url "https://github.com/altoviz/cli/releases/download/v#{version}/altoviz-osx-arm64.tar.gz"
-      sha256 "4beca165999bfb2f921376c101b183ca0cfce4f46a6b89b043a98ca54c50ade2"
+      sha256 "9e5ef92adea68ac0fa1252da4a27786ceac578e55a967792a35a2db811844c71"
     else
       url "https://github.com/altoviz/cli/releases/download/v#{version}/altoviz-osx-x64.tar.gz"
-      sha256 "29e81e1d151bb4a3cc6780d1a3b8e65bd535723fd7189308c0cad51b1f798e91"
+      sha256 "e531fd57dcf7e19ffe539e892c6eeb2e2f76f16eec4825caadc044706e2a9708"
     end
   end
 
   on_linux do
     url "https://github.com/altoviz/cli/releases/download/v#{version}/altoviz-linux-x64.tar.gz"
-    sha256 "7068f6bd458af8dc9154d5ea4394cfa5d37f4bee6295af08c8543931c973d3f1"
+    sha256 "3d8250a88788ca6743096642dadc52cc5bf143179c484128f26b606c58e0a137"
   end
 
   def install
